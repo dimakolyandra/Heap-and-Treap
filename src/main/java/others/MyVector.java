@@ -1,8 +1,15 @@
 package others;
 
+/** My implementation of the vector */
 public class MyVector<T extends Number>{
+	
+	/** Array with data */
 	private T [] array;
+	
+	/** The size allocated for the memory array */
 	private int capacity;
+	
+	/** Real number of elements in array */
 	private int size;
 
 	public int getCapacity() {
@@ -12,17 +19,21 @@ public class MyVector<T extends Number>{
 	public int getSize() {
 		return size;
 	}
+	
 	public void set(int index,T val){
 		if(index  < capacity){
 			array[index] = val;
 		}
 	}
+	
 	public T get(int index){
 		if(index < capacity){
 			return array[index];			
 		}
 		return null;
 	}
+	
+	/** Print vector */
 	public void printVector(){
 		for(int i = 0; i < size;i++){
 			System.out.print(array[i] + " ");
@@ -36,6 +47,9 @@ public class MyVector<T extends Number>{
 		size = 0;
 	}
 	
+	/** Calculate need capacity
+	 * @param newSize New count 
+	 **/
 	private void calcCapacity(int newSize){
 		if(newSize >= capacity){
 			capacity = capacity * 2;
@@ -45,6 +59,10 @@ public class MyVector<T extends Number>{
 		}
 	}
 	
+	/**
+	 * Change size of vector
+	 * @param newSize New size of vector
+	 */
 	private void resize(int newSize){
 		int oldCapacity = capacity;
 		calcCapacity(newSize);
@@ -56,7 +74,10 @@ public class MyVector<T extends Number>{
 			array = tmp;			
 		}
 	}
-
+	
+	/** Add new element in vector
+	 * @param val New value
+	 **/
 	public void add(T val){
 		if(size < capacity - 1){
 			array[size] = val;
@@ -67,7 +88,8 @@ public class MyVector<T extends Number>{
 		}
 		size++;
 	}
-		
+	
+	/** Remove last element */
 	public void removeLast(){
 		size--;
 		if(size < (capacity / 2)){

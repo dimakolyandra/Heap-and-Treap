@@ -8,5 +8,5 @@ public interface DataStructureInterface {
 	public int extractMin();
 	public DataStructureInterface remove(int val);
 	public void print();
-	public void create(int [] val);
+	public DataStructureInterface create(int [] val, DataStructureInterface struct);
 }

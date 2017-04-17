@@ -14,29 +14,20 @@ public class Main {
 	
 	public static void main(String[] args){
 		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
-		DataStructureInterface structure = (DataStructureInterface)context.getBean("Heap");
+		DataStructureInterface structure1 = (DataStructureInterface)context.getBean("Heap");
+		structure1.create(inputArr,structure1);
+		structure1.print();
+		structure1.add(0);
+		structure1.print();
+		System.out.println("Minimun = " + structure1.extractMin());
+		structure1.print();
 		
-		structure.create(inputArr);
-		structure.print();
-		structure.add(0);
-		structure.print();
-		System.out.println("Minimun = " + structure.extractMin());
-		structure.print();
-		
-		structure = (DataStructureInterface) context.getBean("Treap");
-		Treap tr = (Treap) structure;
-		tr.setKey(inputArr[0]);
-		for(int i = 1; i < inputArr.length;i++){
-			tr = tr.add(inputArr[i]);
-		}
-		tr.print();
-		System.out.println("-------------");
-		tr = tr.remove(6);
-		tr = tr.remove(32);
-		tr.print();
-		Treap ftr = tr.search(5, tr);
-		if(ftr!=null){
-			System.out.println("ELEMENT:" + ftr.key + "-" + ftr.priority);
-		}
+		DataStructureInterface structure2 = (DataStructureInterface) context.getBean("Treap");
+		structure2 = structure2.create(inputArr,structure2);
+		structure2.print();
+		structure2 = structure2.remove(6);
+		structure2 = structure2.remove(32);
+		structure2.print();
+		System.out.println("Minimum key: " + structure2.extractMin());
 	}
 }
