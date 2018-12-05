@@ -3,5 +3,5 @@ Program that implements following data structures:
 2) Treap
 
 For compiling and launching program need enter to the command line:
->>> mvn comile
+>>> mvn compile
 >>> mvn exec:java -Dexec.mainClass="others.Main"
